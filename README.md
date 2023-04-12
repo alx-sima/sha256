@@ -22,8 +22,8 @@
 - Criptarea parolelor este un mecanism de securitate esențial.
 
 - Funcțiile de hash au proprietăți matematice interesante, precum
-  imposibilitatea inversării lor fără brute-force și variația mare a inputului
-  care duce la o variație mică a outputului.
+  imposibilitatea inversării lor fără brute-force și variația mică a inputului
+  care duce la o variație mare a outputului.
 
 - Având în vedere că am învățat importanța funcțiilor de hash semestrul trecut,
   ne-am gândit că ar fi interesant să vedem implementarea algoritmilor și să
