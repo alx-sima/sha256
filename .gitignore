@@ -1,0 +1,6 @@
+# Copyright 2023 Alexandru Sima & Iarina Popa
+
+# build artifacts
+sha256sum
+vgcore.*
+*.o
