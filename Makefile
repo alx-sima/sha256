@@ -4,7 +4,7 @@ CFLAGS= -Wall -Wextra -g
 CC= gcc
 TARGET= test
 
-build: io.o sha.o main.o
+build: io.o sha.o main.o bit_functions.o
 	$(CC) $(CFLAGS) -o $(TARGET) $^
 
 clean: 
