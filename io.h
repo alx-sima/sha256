@@ -1,4 +1,4 @@
-/* Copyright 2023 Alexandru Sima & Iarina Popa */
+/* Copyright 2023 Alexandru Sima & Iarina-Ioana Popa */
 #ifndef IO_H_
 #define IO_H_
 

@@ -1,4 +1,4 @@
-/* Copyright 2023 Alexandru Sima & Iarina Popa */
+/* Copyright 2023 Alexandru Sima & Iarina-Ioana Popa */
 #include <stdio.h>
 
 #include "io.h"
