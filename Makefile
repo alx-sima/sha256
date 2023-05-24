@@ -2,9 +2,9 @@
 
 CFLAGS= -Wall -Wextra -g
 CC= gcc
-TARGET= test
+TARGET= sha256sum
 
-build: io.o sha.o main.o bit_functions.o
+build: io.o sha.o main.o bit_functions.o sha256_consts.o
 	$(CC) $(CFLAGS) -o $(TARGET) $^
 
 clean: 
