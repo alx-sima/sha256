@@ -1,13 +1,9 @@
-/* Copyright 2023 Alexandru Sima & Iarina-Ioana Popa */
+/* Copyright (C) 2023 Alexandru Sima & Iarina-Ioana Popa (312CA) */
 
 #ifndef BIT_FUNCTIONS_H_
 #define BIT_FUNCTIONS_H_
 
 #include "sha256_consts.h"
-
-void __swprint(char **dest, word wrd);
-
-void __wprint(word wrd);
 
 word rotr(word wrd, int i);
 

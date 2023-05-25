@@ -1,4 +1,5 @@
-/* Copyright 2023 Alexandru Sima & Iarina-Ioana Popa */
+/* Copyright (C) 2023 Alexandru Sima & Iarina-Ioana Popa (312CA) */
+
 #ifndef SHA256_H_
 #define SHA256_H_
 

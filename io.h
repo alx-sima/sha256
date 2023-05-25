@@ -1,14 +1,14 @@
-/* Copyright 2023 Alexandru Sima & Iarina-Ioana Popa */
+/* Copyright (C) 2023 Alexandru Sima & Iarina-Ioana Popa (312CA) */
+
 #ifndef IO_H_
 #define IO_H_
 
 /**
- * @brief Citeste si intoarce continutul unui fisier/de la tastatura.
+ * @brief Citeste continutul unui fisier.
  *
- * @param filename calea fisierului citit. calea speciala "-" inseamna STDIN
- *
- * @return      continutul fisierului
- * @retval NULL a intervenit o eroare la citire
+ * @param filename 	numele fisierului; daca este "-", citeste de la stdin
+ * @return char* 	continutul fisierului
+ * @retval NULL 	eroare la citire (fisierul nu exista)
  */
 char *read_file_contents(char *filename);
 

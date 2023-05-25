@@ -1,4 +1,4 @@
-/* Copyright 2023 Alexandru Sima & Iarina-Ioana Popa */
+/* Copyright (C) 2023 Alexandru Sima & Iarina-Ioana Popa (312CA) */
 
 #ifndef UTILS_H_
 #define UTILS_H_
@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/** Macro de assert care intrerupe programul in caz de eroare. */
 #define DIE(assertion, call_description)                                       \
 	do {                                                                       \
 		if (assertion) {                                                       \

@@ -1,4 +1,4 @@
-/* Copyright 2023 Alexandru Sima & Iarina-Ioana Popa */
+/* Copyright (C) 2023 Alexandru Sima & Iarina-Ioana Popa (312CA) */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,18 +18,11 @@ static char *read_stdin();
 /**
  * @brief Calculeaza dimensiunea unui fisier.
  *
- * @param fstream descriptorul fisierului
- * @retval numarul de caractere stocate in fisier
+ * @param fstream 	descriptorul fisierului
+ * @return long		numarul de caractere stocate in fisier
  */
 static inline long get_file_size(FILE *fstream);
 
-/**
- * @brief Citeste continutul unui fisier.
- *
- * @param filename 	numele fisierului; daca este "-", citeste de la stdin
- * @return char* 	continutul fisierului
- * @retval NULL 	eroare la citire (fisierul nu exista)
- */
 char *read_file_contents(char *filename)
 {
 	/* `filename`-ul "-" inseamna ca citirea se face de la stdin. */
@@ -37,8 +30,10 @@ char *read_file_contents(char *filename)
 		return read_stdin();
 
 	FILE *fstream = fopen(filename, "rb");
-	if (!fstream)
+	if (!fstream) {
+		fprintf(stderr, "Could not open file %s\n", filename);
 		return NULL;
+	}
 
 	long file_size = get_file_size(fstream);
 
@@ -52,11 +47,6 @@ char *read_file_contents(char *filename)
 	return contents;
 }
 
-/**
- * @brief Citeste input de la `stdin`, pana la intalnirea EOF.
- *
- * @return char* stringul citit
- */
 static char *read_stdin()
 {
 	char buffer[BUFSIZ];
@@ -75,12 +65,6 @@ static char *read_stdin()
 	return read_bytes;
 }
 
-/**
- * @brief Calculeaza dimensiunea unui fisier.
- *
- * @param fstream 	descriptorul fisierului
- * @return long 	lungimea fisierului
- */
 static inline long get_file_size(FILE *fstream)
 {
 	long curr_pos = ftell(fstream);
