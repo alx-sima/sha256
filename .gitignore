@@ -1,6 +1,9 @@
-# Copyright 2023 Alexandru Sima & Iarina Popa
+# Copyright 2023 Alexandru Sima & Iarina-Ioana Popa
+.gdb_history
 
 # build artifacts
 sha256sum
 vgcore.*
+*.d
 *.o
+proiect_pclp3.zip
