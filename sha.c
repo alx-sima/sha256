@@ -76,8 +76,54 @@ void gen_words(word *words)
 
 void sha_file(char *filename)
 {
+	unsigned char *dest;
 	char *content = read_file_contents(filename);
+	if (!content)
+		return;
+	int j = pre_process(&dest, content);
 
-	// TODO calculeaza sha-ul
+	// variabilele h0-h7
+	word digest[8];
+	memcpy(digest, initwrd, 8 * sizeof(word));
+
+	for (int i = 0; i < j; i += CHUNK) {
+		word *wrd;
+		split_block_to_words(dest + i, &wrd);
+		gen_words(wrd);
+
+		// variabilele a-h
+		word wreg[8];
+		memcpy(wreg, digest, 8 * sizeof(word));
+
+		for (int k = 0; k < WORDNO; ++k) {
+			// SIGMA1(e) + ch(e, f, g) + h + K(i) + W(i)
+			word t1 = big_sigma1(wreg[4]) + ch(wreg[4], wreg[5], wreg[6]) +
+					  wreg[7] + wconsts[k] + wrd[k];
+			// SIGMA0(a) + maj(a, b, c)
+			word t2 = big_sigma0(wreg[0]) + maj(wreg[0], wreg[1], wreg[2]);
+
+			for (int l = 7; l > 0; --l)
+				wreg[l] = wreg[l - 1];
+			// a = T1 + T2
+			wreg[0] = t1 + t2;
+			// e += t1
+			wreg[4] += t1;
+		}
+
+		// Adauga a...h la h0...h7
+		for (int k = 0; k < 8; ++k)
+			digest[k] += wreg[k];
+		free(wrd);
+	}
+
+	for (int k = 0; k < RESWORDS; ++k)
+#ifdef LONGWRD
+		printf("%016llx", digest[k]);
+#else
+		printf("%08x", digest[k]);
+#endif
+
 	printf("%s %s\n", content, filename);
+	free(content);
+	free(dest);
 }
