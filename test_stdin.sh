@@ -1,5 +1,5 @@
 #!/bin/env bash
-# Copyright 2023 Alexandru Sima (312CA)
+# Copyright (C) 2023 Alexandru Sima (312CA) #
 #
 # Script de test pentru executabil.
 #
@@ -24,7 +24,7 @@ for i in $(seq 1 $tests_no); do
     output=$(echo -n "$teststr" | $1)
     expected=$(echo -n "$teststr" | $2)
 
-    if [ "$output" != "$expected" ]; then
+    if test "$output" != "$expected"; then
         echo "Test $i failed"
         echo "Expected: $expected"
         echo "Got: $output"
